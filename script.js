@@ -21,6 +21,7 @@ function start() {
     document.getElementById("asteroid").style = "visibility: visibil";
     document.getElementById("start").style= "visibility: hidden";
     setInterval(increaseScore, 1000);
+    plane.style.left = (planeLeft + moveDistance) + "px";
     newAsteroid();
 }
 
