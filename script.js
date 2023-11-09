@@ -12,6 +12,10 @@ let asteroidTop = asteroid.offsetTop;
 let asteroidLeft = asteroid.offsetLeft;
 let stop = 0;
 let seconds = 0;
+let asteroidPositionLeft = 1 + "px";
+let asteroidPositionRight = 180 + "px";
+let planeMaxLeft = 48 + "px";
+let planeMaxRight = 248 + "px";
 
 function start() {
     document.getElementById("asteroid").style = "visibility: visibil";
@@ -63,16 +67,16 @@ function asteroidMove() {
 function newAsteroid() {
     let nweAsteroidPosition = Math.floor((Math.random()  * 2) + 1);
     if (nweAsteroidPosition == 1) {
-        asteroid.style.left = 1 + "px";
+        asteroid.style.left = asteroidPositionLeft;
     } else {
-        asteroid.style.left = 180 + "px";
+        asteroid.style.left = asteroidPositionRight;
     }
 }
 
 function verifPositions() {
     if ((parseInt(asteroid.style.top)) + 170 == parseInt(plane.style.top)) {
-        if ((asteroid.style.left == 180 + "px" &&  plane.style.left == 248 + "px") ||
-            (asteroid.style.left == 1 + "px" &&  plane.style.left == 48 + "px"))  {
+        if ((asteroid.style.left == asteroidPositionRight &&  plane.style.left == planeMaxRight) ||
+            (asteroid.style.left == asteroidPositionLeft &&  plane.style.left == planeMaxLeft)) {
                 document.getElementById("finalMesage").innerText = "Game over! Your score is " + score;
                 stop = 1;
         }
